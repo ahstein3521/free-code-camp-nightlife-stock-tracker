@@ -7,12 +7,12 @@ import d3 from 'd3';
  class Chart extends Component {
 
   render(){
-  if(!this.props.stocks.length){
-    return <div></div>
+  if(!this.props.stocks||!this.props.stocks.length||!this.props.stocks[0].data){
+    return <div><h4>Nothing To See Here</h4></div>
   }
     const colors=d3.scale.category10();
-    
     const stocks=this.props.stocks;
+    
     const lineData=stocks.map((v)=>{
       return{
          name:v.symbol,
@@ -39,6 +39,7 @@ import d3 from 'd3';
   
 }
 function mapStateToProps({stocks}){
+  console.log(stocks)
   return {stocks}
   
 }

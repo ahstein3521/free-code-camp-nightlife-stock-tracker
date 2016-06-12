@@ -5,7 +5,9 @@ var socket=require('socket.io')
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:stocks/stocks');
+//require('./secret') uncomment if running locally
+
+mongoose.connect(process.env.MONGO_URI);
 
 
 var SERVER=app.listen(PORT);

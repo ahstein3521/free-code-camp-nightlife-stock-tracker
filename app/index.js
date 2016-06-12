@@ -9,7 +9,7 @@ import Home from './components/home'
 import createSocketIoMiddleware from 'redux-socket.io';
 
 import io from 'socket.io-client';
-const socket = io('http://localhost:3333');
+const socket = io('https://stock-tracker-server.herokuapp.com');
 const socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
 
 const store=applyMiddleware(socketIoMiddleware)(createStore)(reducers)
